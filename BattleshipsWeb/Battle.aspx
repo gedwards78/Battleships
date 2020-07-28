@@ -4,7 +4,7 @@
 
     <div>
         <div id="heading" runat="server">
-            <h1>BATTLESHIPS</h1>
+            <h1>The Battle Zone</h1>
         </div>
 
         <div id="gameArea">
