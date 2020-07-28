@@ -1,0 +1,81 @@
+﻿#MainContent_playerArea {
+    float: left;
+    padding: 30px;
+}
+
+#MainContent_opponentArea {
+    float: left;
+    padding: 30px;
+}
+
+#preview, #playGame, .configPanel {
+    float: left;
+    padding: 30px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    width: 30px;
+    text-align: center;
+    border: #4e95f4 1px solid;
+}
+
+tr {
+    height: 30px;
+}
+
+.openWater {
+    background-color: lightblue;
+    cursor: crosshair;
+}
+
+#MainContent_opponentBoard .openWater:hover {
+    background-color: orange;
+}
+
+.bombHit {
+    background-color: red;
+}
+
+.bombMiss {
+    background-color: orange;
+}
+
+.battleShip {
+    background-color: green;
+}
+
+#MainContent_strikeLogArea {
+    /*            float: left;*/
+    padding: 30px;
+}
+
+    #MainContent_strikeLogArea #MainContent_strikeLog {
+    }
+
+        #MainContent_strikeLogArea #MainContent_strikeLog .sunk {
+            color: red;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        #MainContent_strikeLogArea #MainContent_strikeLog .hit {
+            color: blue;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        #MainContent_strikeLogArea #MainContent_strikeLog .youWon {
+            font-size: 20px;
+            font-weight: 800;
+            color: crimson;
+        }
+
+        #MainContent_strikeLogArea #MainContent_strikeLog .youLost {
+            font-size: 20px;
+            font-weight: 800;
+            color: blueviolet;
+        }
