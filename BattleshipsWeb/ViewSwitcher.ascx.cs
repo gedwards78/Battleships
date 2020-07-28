@@ -1,26 +1,30 @@
-using Microsoft.AspNet.FriendlyUrls.Resolvers;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Routing;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Microsoft.AspNet.FriendlyUrls.Resolvers;
 
 namespace BattleshipsWeb
 {
     public partial class ViewSwitcher : System.Web.UI.UserControl
     {
-        protected String CurrentView { get; private set; }
+        protected string CurrentView { get; private set; }
 
-        protected String AlternateView { get; private set; }
+        protected string AlternateView { get; private set; }
 
-        protected String SwitchUrl { get; private set; }
+        protected string SwitchUrl { get; private set; }
 
-        protected void Page_Load(Object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             // Determine current view
-            var isMobile = WebFormsFriendlyUrlResolver.IsMobileView(new HttpContextWrapper(this.Context));
-            this.CurrentView = isMobile ? "Mobile" : "Desktop";
+            var isMobile = WebFormsFriendlyUrlResolver.IsMobileView(new HttpContextWrapper(Context));
+            CurrentView = isMobile ? "Mobile" : "Desktop";
 
             // Determine alternate view
-            this.AlternateView = isMobile ? "Desktop" : "Mobile";
+            AlternateView = isMobile ? "Desktop" : "Mobile";
 
             // Create switch URL from the route, e.g. ~/__FriendlyUrls_SwitchView/Mobile?ReturnUrl=/Page
             var switchViewRouteName = "AspNet.FriendlyUrls.SwitchView";
@@ -31,9 +35,9 @@ namespace BattleshipsWeb
                 this.Visible = false;
                 return;
             }
-            var url = this.GetRouteUrl(switchViewRouteName, new { view = this.AlternateView, __FriendlyUrls_SwitchViews = true });
-            url += "?ReturnUrl=" + HttpUtility.UrlEncode(this.Request.RawUrl);
-            this.SwitchUrl = url;
+            var url = GetRouteUrl(switchViewRouteName, new { view = AlternateView, __FriendlyUrls_SwitchViews = true });
+            url += "?ReturnUrl=" + HttpUtility.UrlEncode(Request.RawUrl);
+            SwitchUrl = url;
         }
     }
 }
